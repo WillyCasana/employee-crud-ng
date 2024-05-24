@@ -1,0 +1,71 @@
+<h2 class="text-center">Employee Form</h2>
+<form (ngSubmit)="saveEmployee()">
+
+<div class="container">
+
+  <div class="form-row">
+    
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input class="form-control" type="text" id="name" [(ngModel)]="employee.name" name="name" value="employee2.name">
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group">
+        <label for="department">Department:</label>
+        <select class="form-control" name="deparment" id="deparment" [(ngModel)]="employee.department">
+         <option *ngFor="let dept of departments" [value]="dept">{{dept}}</option>
+        </select>
+    </div>
+  </div>
+  
+  <div class="form-row">
+  
+    <div class="form-group">
+        <label for="dateOfHire">Date of Hire:</label>
+        <input class="form-control" type="date" id="dateOfHire" [(ngModel)]="employee.dateOfHire" name="dateOfHire">
+    </div>
+  </div>
+  
+  <div class="form-row">
+  
+    <div class="form-group">
+        <label for="salary">Salary:</label>
+        <input class="form-control" type="number" id="salary" [(ngModel)]="employee.salary" name="salary">
+    </div>
+  </div>
+  
+  <button class="btn btn-primary" type="submit">Save</button>
+
+</div>
+
+
+<div class="container mt-4">
+  <table  class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Salary</th>
+        <th>Date of Hire</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employeeList; let i = index">
+        <td>{{emp.name}}</td>
+        <td>{{emp.department}}</td>
+        <td>{{emp.salary}}</td>
+        <td>{{emp.dateOfHire}}</td>
+        <td>
+          <button class="btn btn-primary" type="button" (click)="editEmployee(i)">Edit</button>
+          <button class="btn btn-primary" type="button" (click)="deleteEmployee(i)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+
+</form>
