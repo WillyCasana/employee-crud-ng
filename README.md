@@ -1,2 +1,2 @@
 # employee-crud-ng
-Creating employe crud using angular
+Creating simple employe crud using angular
